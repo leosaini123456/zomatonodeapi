@@ -3,7 +3,7 @@ let app = express();
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 //const mongoUrl = "mongodb://localhost:27017"
-const mongoUrl = "mongodb+srv://local:test12345@cluster0.f8vmc.mongodb.net/augintern?retryWrites=true&w=majority"
+const mongoUrl = "mongodb+srv://blog:blog@cluster0.7ntgj.mongodb.net/zomato?retryWrites=true&w=majority"
 const dotenv = require('dotenv')
 dotenv.config()
 const bodyParser = require('body-parser')
