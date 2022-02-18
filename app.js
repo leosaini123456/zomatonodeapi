@@ -37,7 +37,7 @@ app.get('/location',(req,res) => {
         res.send(result)
     })
 })*/
-app.get('/restaurants',(req,res) => {
+app.get('/restro',(req,res) => {
     let stateId  = Number(req.query.state_id)
     let mealId = Number(req.query.meal_id)
     let query = {};
@@ -51,11 +51,18 @@ app.get('/restaurants',(req,res) => {
         query = {"mealTypes.mealtype_id":mealId}
     }
     console.log(">>>>restId",stateId)
-    db.collection('restaurants').find(query).toArray((err,result) =>{
+    db.collection('zomato').find(query).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
 })
+
+app.get("/apidoc",(req,res)=>{
+    res.send("<h2>Page 1</h2><p>List of Location : https://zomato-lovepreet.herokuapp.com/location<br><br>List of Restro : https://zomato-lovepreet.herokuapp.com/restro<br><br>Data According to quick search : https://zomato-lovepreet.herokuapp.com/restro>stateId=2</br><br>Data Accoding to state Id and meal id : https://zomato-lovepreet.herokuapp.com/restro?state_id&meal_id=5<br><br></p><h2>Page 2</h2></p><p> 1. Restro wrt to quicksearch : https://zomato-lovepreet.herokuapp.com/restro?mealtype_id=1</p>");
+    // res.send("<p>List of Restaurant : https://zomato-lovepreet.herokuapp.com/restro</p>")
+    
+})
+
 
 // filters
 app.get('/filter/:mealId',(req,res) => {
